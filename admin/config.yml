@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: SasonLevy/sason-website
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "general"
+    label: "תוכן כללי"
+    files:
+      - file: "homepage.md"
+        label: "דף הבית"
+        name: "homepage"
+        fields:
+          - { label: "כותרת ראשית", name: "title", widget: "string" }
+          - { label: "סלוגן", name: "slogan", widget: "string" }
+          - { label: "אודות", name: "about", widget: "text" }
+          - { label: "שירותים", name: "services", widget: "text" }
+          - { label: "תהליך", name: "process", widget: "text" }
+          - { label: "שאלות נפוצות", name: "faq", widget: "text" }
+          - { label: "צור קשר", name: "contact", widget: "text" }
