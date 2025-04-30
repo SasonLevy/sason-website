@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <title>ניהול תוכן - ששון לוי</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- תיקון הפניות invite_token ו-recovery_token -->
+    <script>
+      const hash = window.location.hash;
+      if (hash && (hash.includes("invite_token") || hash.includes("recovery_token"))) {
+        const token = hash.replace("#", "");
+        window.location.replace("/admin/?" + token);
+      }
+    </script>
+
+    <!-- טעינת Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.js"></script>
+  </head>
+  <body>
+    <div id="nc-root"></div>
+
+    <script>
+      window.addEventListener('load', function () {
+        if (typeof CMS !== 'undefined') {
+          CMS.init();
+        } else {
+          console.error("Netlify CMS not loaded");
+        }
+      });
+    </script>
+  </body>
+</html>
+
