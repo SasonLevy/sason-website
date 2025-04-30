@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <title>ניהול תוכן - ששון לוי</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div id="nc-root"></div>
+    
+    <script src="https://unpkg.com/netlify-cms@^2.15.0/dist/netlify-cms.js"></script>
+    <script>
+      window.addEventListener('load', function () {
+        if (typeof CMS !== 'undefined') {
+          CMS.init();
+        } else {
+          console.error("Netlify CMS not loaded");
+        }
+      });
+    </script>
+  </body>
+</html>
+
