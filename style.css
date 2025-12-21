@@ -1,189 +1,297 @@
-html {
+:root{
+  /* Warm, trustworthy palette (no pure white/black) */
+  --bg: #f5f1eb;          /* warm off-white */
+  --surface: #fbfaf8;     /* soft cream instead of #fff */
+  --text: #2f2c28;        /* soft charcoal instead of #000 */
+  --muted: #615c55;
+  --border: #e4ded6;
+
+  --primary: #3e5f5b;     /* deep warm teal-green */
+  --primary-2: #324e4b;
+
+  --accent: #b27a3a;      /* calm amber */
+  --accent-2: #99662f;
+
+  --shadow: 0 10px 28px rgba(0,0,0,0.08);
+  --shadow-soft: 0 5px 14px rgba(0,0,0,0.06);
+}
+
+html{
   scroll-behavior: smooth;
 }
-body {
+
+body{
   font-family: 'Heebo', sans-serif;
   margin: 0;
   padding: 0;
   direction: rtl;
-  background-color: #f2f9ff;
-  color: #333;
-  line-height: 1.8;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.9;
 }
 
-.scroll-offset {
+.scroll-offset{
   scroll-margin-top: 100px;
 }
 
-header {
+/* Header */
+header{
   text-align: center;
-  padding: 2rem 1rem 1rem;
-  background-color: #00bcd4;
-  color: white;
+  padding: 2.2rem 1rem 1.2rem;
+  background: linear-gradient(180deg, rgba(62,95,91,0.96), rgba(69,107,102,0.96));
+  color: #f6f3ee; /* warm near-white */
 }
 
-.profile img {
+.profile img{
   width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border: 4px solid rgba(246,243,238,0.9);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
 }
 
-h1 {
+h1{
   margin: 1rem 0 0.5rem;
-  font-size: 2.4rem;
+  font-size: 2.35rem;
+  letter-spacing: 0.2px;
 }
 
-.slogan {
-  font-size: 1.2rem;
+.slogan{
+  font-size: 1.15rem;
   font-style: italic;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  opacity: 0.95;
 }
 
-nav {
+/* Nav */
+nav{
   position: sticky;
   top: 0;
-  background-color: #00bcd4;
-  padding: 0.5rem 0;
+  background-color: rgba(62, 95, 91, 0.93);
+  backdrop-filter: blur(6px);
+  padding: 0.55rem 0;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(228,222,214,0.25);
 }
 
-.menu-toggle {
+.menu-toggle{
   display: none;
   font-size: 2rem;
-  color: white;
+  color: #f6f3ee;
   cursor: pointer;
   text-align: center;
+  padding: 0.2rem 0;
 }
 
-nav ul {
+nav ul{
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 6px;
 }
 
-nav ul li {
-  margin: 0 15px;
+nav ul li{
+  margin: 0 10px;
 }
 
-nav ul li a {
-  color: white;
+nav ul li a{
+  color: #f6f3ee;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 800;
+  padding: 0.45rem 0.75rem;
+  border-radius: 10px;
+  transition: background-color 0.15s ease, opacity 0.15s ease, transform 0.15s ease;
 }
 
-main {
+nav ul li a:hover{
+  background-color: rgba(246,243,238,0.14);
+  transform: translateY(-1px);
+}
+
+/* Main */
+main{
   max-width: 900px;
   margin: auto;
   padding: 2rem 1rem;
 }
 
-.content-section {
-  background: white;
-  padding: 2.5rem 2rem;
-  margin: 3rem 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  border: 1px solid #e0e0e0;
+.content-section{
+  background: var(--surface);
+  padding: 2.4rem 2rem;
+  margin: 2.6rem 0;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
 }
 
-.cards {
+/* Headings hierarchy */
+h2{
+  font-size: 1.6rem;
+  margin: 0 0 1.2rem;
+  color: var(--primary);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+h3{
+  font-size: 1.2rem;
+  margin: 0 0 0.6rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+p{
+  color: var(--text);
+}
+
+/* About long text readability */
+#about p{
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.95;
+}
+
+/* Cards */
+.cards{
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 18px;
   justify-content: center;
 }
 
-.card {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.card{
+  background: #fdfcf9; /* warm off-white */
+  padding: 1.6rem 1.6rem 1.7rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
   width: 280px;
-  transition: 0.2s;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  border: 1px solid rgba(228,222,214,0.9);
 }
 
-.card:hover {
-  transform: scale(1.03);
+.card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.10);
 }
 
-.steps {
+.card h3{
+  margin-top: 0;
+}
+
+.card p{
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Steps */
+.steps{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
   font-size: 1.1rem;
+  color: var(--text);
 }
 
-.arrow {
+.step{
+  background: rgba(62,95,91,0.06);
+  border: 1px solid rgba(62,95,91,0.12);
+  padding: 0.55rem 0.8rem;
+  border-radius: 14px;
+}
+
+.arrow{
   font-size: 2rem;
-  color: #00bcd4;
+  color: var(--primary);
+  opacity: 0.9;
 }
 
-.faq h4 {
-  margin-bottom: 5px;
+/* FAQ */
+.faq h4{
+  margin-bottom: 6px;
+  color: var(--text);
 }
 
-.faq p {
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px dashed #ccc;
+.faq p{
+  margin: 0 0 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px dashed rgba(62,95,91,0.25);
+  color: var(--muted);
 }
 
-form {
+/* Form */
+form{
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 450px;
+  max-width: 460px;
   margin: auto;
 }
 
-input, textarea {
-  padding: 0.8rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+input, textarea{
+  padding: 0.9rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
   font-size: 1rem;
   text-align: right;
+  background: #fdfcf9;
+  color: var(--text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
-button {
-  padding: 0.8rem;
-  background-color: #ff9800;
-  color: white;
+input:focus, textarea:focus{
+  outline: none;
+  border-color: rgba(62,95,91,0.55);
+  box-shadow: 0 0 0 4px rgba(62,95,91,0.12);
+  background: #fbfaf8;
+}
+
+button{
+  padding: 0.95rem;
+  background-color: var(--accent);
+  color: #f6f3ee;
   border: none;
-  border-radius: 5px;
+  border-radius: 14px;
   font-size: 1rem;
+  font-weight: 900;
   cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: transform 0.12s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 10px 22px rgba(178,122,58,0.22);
 }
 
-button:hover {
-  background-color: #f57c00;
+button:hover{
+  background-color: var(--accent-2);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(178,122,58,0.28);
 }
 
-footer {
+/* Footer */
+footer{
   text-align: center;
-  padding: 1.5rem;
-  background-color: #00796b;
-  color: white;
-  font-size: 0.9rem;
+  padding: 1.8rem 1rem;
+  background-color: #1f3a38; /* deep green, not black */
+  color: rgba(246,243,238,0.92);
+  font-size: 0.95rem;
   margin-top: 2rem;
 }
 
-.whatsapp-button {
+/* WhatsApp */
+.whatsapp-button{
   position: fixed;
   bottom: 20px;
   left: 20px;
   background-color: #25d366;
   border-radius: 50%;
   padding: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,38 +299,45 @@ footer {
   height: 60px;
 }
 
-.whatsapp-button img {
+.whatsapp-button img{
   width: 30px;
   height: 30px;
 }
 
-@media (max-width: 768px) {
-  .cards {
+/* Mobile */
+@media (max-width: 768px){
+  .cards{
     flex-direction: column;
     align-items: center;
   }
 
-  .steps {
+  .steps{
     flex-direction: column;
   }
 
-  .menu-toggle {
+  .menu-toggle{
     display: block;
   }
 
-  nav ul {
+  nav ul{
     display: none;
     flex-direction: column;
-    background-color: #00bcd4;
+    background-color: rgba(62, 95, 91, 0.98);
     text-align: center;
     margin-top: 10px;
+    padding: 0.6rem 0;
+    border-radius: 14px;
+    width: calc(100% - 2rem);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid rgba(228,222,214,0.25);
   }
 
-  nav ul.show {
+  nav ul.show{
     display: flex;
   }
 
-  nav ul li {
-    margin: 10px 0;
+  nav ul li{
+    margin: 8px 0;
   }
 }
